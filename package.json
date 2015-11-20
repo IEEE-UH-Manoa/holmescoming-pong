@@ -1,0 +1,22 @@
+{
+  "name": "holmescoming-pong",
+  "version": "1.0.0",
+  "description": "holmescoming pong game for the ieee student branch at UHM",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IEEE-UH-Manoa/holmescoming-pong.git"
+  },
+  "author": "Kenny Luong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IEEE-UH-Manoa/holmescoming-pong/issues"
+  },
+  "homepage": "https://github.com/IEEE-UH-Manoa/holmescoming-pong#readme",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}
