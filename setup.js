@@ -22,29 +22,7 @@ function attachInterrupts(input_pins){
     });
 }
 
-function attachWatch(input_pins){
-    console.log("Attaching watcher callback to all pins");
-
-    input_pins.forEach(function(input_pin){
-        b.pinMode(input_pin, b.INPUT);
-        b.attachInterrupt(input_pin, true, b.RISING, interruptCallback);
-        console.log("Finished attaching watcher callbacks + " + input_pin);
-    });
-
-}
-
 module.exports = {
-    watch: function(){
-        var input_pins = [
-            "P8_8",
-            "P8_9",
-            "P8_10",
-            "P8_11",
-            "P8_11"
-        ];
-        attachWatch(input_pins);
-        console.log("Attached watcher interrrupts");
-    },
     start: function(){
         var input_pins = [
             "P8_8",

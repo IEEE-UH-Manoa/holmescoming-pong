@@ -15,6 +15,6 @@ var getInput = function(callback){
 getInput(function(text){
     console.log('received data:', util.inspect(text));
     if (text === '\n') {
-        setup.watch();
+        setup.start();
     }
 });
