@@ -1,0 +1,22 @@
+.circle {
+    width: 100px;
+    height: 100px;
+    background: #1a8cff;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    margin:20px;
+    display:inline-block;
+}
+
+.circle-point {
+    width: 100px;
+    height: 100px;
+    background: #ff9933;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    margin:20px;
+    display:inline-block;
+}
+
