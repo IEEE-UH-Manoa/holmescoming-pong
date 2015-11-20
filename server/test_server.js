@@ -15,6 +15,14 @@ ss = new server.SocketServer();
 
 ss.wsServer.on('request', function(request) {
     var connection = request.accept('echo-protocol', request.origin);
+    connection.on('message', function(message) {
+        msg = message.utf8Data
+        console.log("Message: " + msg);
+        if(msg === "end_game"){
+            console.log("we should be ending our game here");
+            emit("end_game");
+        }
+    });
     connection.on('close', function(reasonCode, description) {
         console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected.');
     });
