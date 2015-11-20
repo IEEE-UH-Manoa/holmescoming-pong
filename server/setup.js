@@ -21,7 +21,7 @@ function emit(message){
 
 function interruptCallback(x) {
     console.log(JSON.stringify(x.pin["universalName"]));
-    emit(message);
+    emit("Interrupt has been called." );
 }
 
 function detach() {
@@ -44,6 +44,13 @@ module.exports = {
 
         ss.wsServer.on('request', function(request) {
             var connection = request.accept('echo-protocol', request.origin);
+            connection.on('message', function(message) {
+                var msg = message.utf8Data
+                if(msg === "end_game"){
+                    // End Game Behavior here.
+                }
+            });
+
             connection.on('close', function(reasonCode, description) {
                 console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected.');
             });
