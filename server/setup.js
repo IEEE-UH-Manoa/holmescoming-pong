@@ -48,8 +48,8 @@ module.exports = {
                 console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected.');
             });
             connections.push(connection);
-            console.log(connections.length);
             console.log((new Date()) + ' Connection accepted.');
+            console.log("Current number of connections: " + connections.length);
         });
 
         attachInterrupts(input_pins);
