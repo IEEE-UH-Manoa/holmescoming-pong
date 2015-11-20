@@ -49,6 +49,9 @@ module.exports = {
                 if(msg === "end_game"){
                     // End Game Behavior here.
                 }
+                else if( msg === "start_game" ){
+                    // Start Game Behavior here.
+                }
             });
 
             connection.on('close', function(reasonCode, description) {
