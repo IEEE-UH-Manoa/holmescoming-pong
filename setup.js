@@ -1,10 +1,10 @@
 var b = require('bonescript');
-var inputPin = 'P8_8';
+var game = require('./game');
 
 function interruptCallback(x) {
     console.log(Date.now());
-    console.log(JSON.stringify(x));
-    console.log("Got something");
+    // console.log("Got something on " + x.pin.universalName);
+    console.log(JSON.stringify(x.pin["universalName"]));
 }
 
 function detach() {
@@ -12,11 +12,48 @@ function detach() {
     console.log('Interrupt detached');
 }
 
+function attachInterrupts(input_pins){
+    console.log("Attempting to attach all interrupts");
+
+    input_pins.forEach(function(input_pin){
+        b.pinMode(input_pin, b.INPUT);
+        b.attachInterrupt(input_pin, true, b.RISING, interruptCallback);
+        console.log("Finished attaching inputPin + " + input_pin);
+    });
+}
+
+function attachWatch(input_pins){
+    console.log("Attaching watcher callback to all pins");
+
+    input_pins.forEach(function(input_pin){
+        b.pinMode(input_pin, b.INPUT);
+        b.attachInterrupt(input_pin, true, b.RISING, interruptCallback);
+        console.log("Finished attaching watcher callbacks + " + input_pin);
+    });
+
+}
 
 module.exports = {
+    watch: function(){
+        var input_pins = [
+            "P8_8",
+            "P8_9",
+            "P8_10",
+            "P8_11",
+            "P8_11"
+        ];
+        attachWatch(input_pins);
+        console.log("Attached watcher interrrupts");
+    },
     start: function(){
-        b.pinMode(inputPin, b.INPUT);
-        b.attachInterrupt(inputPin, true, b.RISING, interruptCallback);
+        var input_pins = [
+            "P8_8",
+            "P8_9",
+            "P8_10",
+            "P8_11",
+            "P8_11"
+        ];
+        attachInterrupts(input_pins);
         console.log("Attached Interrupts");
     }
 }
